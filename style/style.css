@@ -1,0 +1,256 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: arial;
+  background-image: url(../assets/img/logoback.jpg);
+  background-size: cover;
+  color: black;
+  min-width: 1180px;
+  }
+  
+  img {
+    object-fit: cover;
+  }
+  
+  
+
+  
+  
+ 
+  
+  /* ========== login form =========*/
+  
+  
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+  }
+  
+  .login-box {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 0.3rem;
+    width: 100%;
+    max-width: 30rem;
+    margin: 1rem;
+    background-color: #FFF;
+  }
+  
+  .login-content {
+    padding: 2rem;
+  }
+  
+  .login-header {
+    margin: 0.3rem 0rem 2rem;
+  }
+  
+  .login-items {
+    margin: 0.3rem 0rem;
+  }
+  
+  .login-items input[type=number], input[name=password]{
+    height: 2.7rem;
+    font-size: 15px;
+    border-style: hidden hidden solid;
+    width: 100%;
+    margin-bottom: 3px;
+    outline: none ;
+    
+  }
+  .login-items input[type=password], input[name=cpassword]{
+    height: 2.7rem;
+    font-size: 15px;
+    border-style: hidden hidden solid;
+    width: 100%;
+    margin-bottom: 3px;
+    outline: none ;
+    
+  }
+  
+  
+  .login-items label {
+    font-size: 19px;
+  }
+  
+  .login-items select {
+    font-size: 17px;
+    margin-top: 5px;
+  }
+  
+  .login-items button {
+    font-size: 19px;
+    margin: -10px auto;
+    width: 100%;
+    height: 2.3rem;
+    text-align: center;
+    border-style: hidden;
+    background-color: #00bfff;
+    color: #FFFFFF;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: .2s;
+  }
+  
+  .login-items button:hover {
+    opacity: 0.7;
+  }
+  
+  .login-type {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-type label {
+    font-size: 19px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .login-type select {
+    padding: 0.4rem;
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .marg-b {
+    margin-bottom: 1.5rem;
+  }
+  
+  
+  .login-left{
+    width: 40%;
+    margin: 1.5em;
+  }
+  
+  .login-right{
+    text-align: left;
+    width: 30%;
+    margin-left: 6.6em;
+    margin-right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-quote{
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin-top: -2em;
+  }
+  
+  .sidebar-name1 {
+    font-weight: 400;
+    font-size: 1.4rem;
+    margin-right: 1rem;
+    margin-left: 1.5rem;
+  }
+  
+  .login-title{
+    font-weight: 1000;
+    font-size: 4rem;
+    margin-right: 1rem;
+  }
+  
+  .popup-name {
+    font-size: 1.3rem;
+  }
+  
+  .popup-student-number {
+    font-size: .9rem;
+    margin-top: -1em;
+  }
+  
+  .footer-text span {
+    font-weight: 800;
+  }
+  
+  .footer-text2 span {
+    font-weight: 800;
+  }
+  
+  .acad-year {
+    font-weight: 1000;
+    font-size: 1.3rem;
+  }
+  
+  .eval-status {
+    font-weight: 1000;
+  }
+  
+  
+  .right {
+    width: 100%;
+    max-width: 13rem;
+    max-height: 2rem;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .right .profile {
+    max-width: 2.1rem;
+    max-height: 2.1rem;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    margin-right: 1em;
+  }
+  
+  
+
+  
+  /* ========== resposive =========*/
+  
+  @media(max-width: 1180px) {
+  
+    /* responsive quesform form */
+    .form{
+      width: 100%;
+    }
+  
+    .edit-question{
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .student-evaluation{
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .rating-legend-box{
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .evaluation-question{
+      width: 100%;
+    }
+    .login-left{
+      display: none;
+      margin: 0;
+    }
+    .login-right{
+      width: 90%;
+      margin: 0%;
+    }
+  
+    .login-container {
+      padding: 0%;
+    }
+  
+    .login-box{
+      margin: 0;
+      width: 100%;
+    }
+  
+  
+  }

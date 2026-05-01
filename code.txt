@@ -1,0 +1,111 @@
+<?php
+// include the database connection file
+@include './assets/connection/connection.php';
+session_start();
+
+if (isset($_POST['login'])) {
+    $uid = trim(mysqli_real_escape_string($conn, $_POST['login_id']));
+    $password = $_POST['password'];
+
+    $select = "SELECT * FROM users WHERE uid = '$uid'";
+    $result = mysqli_query($conn, $select);
+    $row = mysqli_fetch_assoc($result);
+
+    // verify if a user record exists 
+    if ($row && $password === $row['password']) {
+        // password matches
+        if ($row['role'] == 'Admin') {
+            $userID = $row['id'];
+            $_SESSION['user_id'] = $userID;
+            $_SESSION['admin_id'] = $row['uid'];
+            $_SESSION['admin_role'] = $row['role'];
+            $_SESSION['success_msg'] = 'Login successful!';
+
+            // Display SweetAlert on successful login
+            echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@10'></script>";
+            echo "<script>";
+            echo "Swal.fire({";
+            echo "  icon: 'success',";
+            echo "  title: 'Login successful!',";
+            echo "  text: 'Redirecting to Admin Dashboard...',";
+            echo "  showConfirmButton: false,";
+            echo "  timer: 2000";
+            echo "}).then(() => {";
+            echo "  window.location.href = './start/admindashboard.php';";
+            echo "});";
+            echo "</script>";
+            exit();
+        } elseif ($row['role'] == 'Student') {
+            $userID = $row['id'];
+            $_SESSION['user_id'] = $userID;
+            $_SESSION['user_studuid'] = $row['uid'];
+            $_SESSION['user_role'] = $row['role'];
+            $_SESSION['success_msg'] = 'Login successful!';
+
+            // Display SweetAlert on successful login
+            echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@10'></script>";
+            echo "<script>";
+            echo "Swal.fire({";
+            echo "  icon: 'success',";
+            echo "  title: 'Login successful!',";
+            echo "  text: 'Redirecting to Student Dashboard...',";
+            echo "  showConfirmButton: false,";
+            echo "  timer: 2000";
+            echo "}).then(() => {";
+            echo "  window.location.href = './start/studentdashboard.php';";
+            echo "});";
+            echo "</script>";
+            exit();
+        
+        }
+    } else {
+        // password does not match or user not found
+        $error = 'Incorrect Student ID or password!';
+
+        // SweetAlert JS for login failure
+        echo "<script src='//cdn.jsdelivr.net/npm/sweetalert2@10'></script>";
+        echo "<script>";
+        echo "Swal.fire({";
+        echo "  icon: 'error',";
+        echo "  title: 'Login failed!',";
+        echo "  text: '$error',";
+        echo "});";
+        echo "</script>";
+    }
+}
+?>
+
+
+<img src="./assets/img/logo.png" style="width: 100px; position: absolute; margin: 20px">
+<form action="#" method="POST" class="">
+        <div class="login-container">
+            <div class="login-left">
+                <p class="login-title">AISAT CENTRAL INK DAU </p>
+                <p class="login-quote">Empowering minds through excellence, our institution stands as a global beacon of learning, seamlessly blending service and innovation to shape leaders of tomorrow</p>
+            </div>
+
+            <div class="login-right">
+                <div class="login-box">
+                    <div class="login-content">
+                        <div class="login-header">
+                            <h2>Log In</h2>
+                        </div>
+                        <div class="login-items">
+                            <label for="login_id"> ID#</label>
+                            <input type="number" required placeholder="Enter ID" name="login_id">
+                        </div>
+                        <div class="login-items marg-b">
+                            <label for="password">Password</label>
+                            <input type="password" required placeholder="Enter Password" name="password">
+
+                        </div>
+                        <div class="login-items marg-b">
+                            <button type="submit" name="login" value="Login"><a href="" style="text-decoration: none; color: inherit;">Log In</a></button>
+                        </div>
+
+                        <p>Don't have an account? <a href="register.php">Sign up Now</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
